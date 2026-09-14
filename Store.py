@@ -1,1 +1,1 @@
-"This is our Store module"
+#Store Module
