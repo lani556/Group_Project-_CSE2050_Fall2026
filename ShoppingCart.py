@@ -3,7 +3,7 @@ import Product
 class ShoppingCart
 
     def __init__(self):
-        self.cart = list[Product()]
+        self.cart = []
     
 
     def add_product(Product):
