@@ -1,12 +1,12 @@
-import Product 
+import product 
 
-class ShoppingCart
+class cart
 
     def __init__(self):
         self.cart = list[Product()]
     
 
-    def add_product(Product):
+    def add_product(p commroduct):
         self.cart.append(Product)
 
 
