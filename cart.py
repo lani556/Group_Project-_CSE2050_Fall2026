@@ -1,13 +1,13 @@
-import product 
+from product import Product 
 
-class cart:
+class Cart:
 
     def __init__(self):
         self.cart = []
     
 
-    def add_product(self, product):
-        self.cart.append(product)
+    def add_product(self, Product):
+        self.cart.append(Product)
 
 
     def remove_product(self, product_id):
@@ -38,7 +38,7 @@ class cart:
         return False
 
 
-ella = cart()
+ella = Cart()
 ella.calculate_total()
 
 
