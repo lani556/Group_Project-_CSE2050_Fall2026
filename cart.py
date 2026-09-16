@@ -1,20 +1,24 @@
+""" This class creatings Shopping Carts for customers, adds and removes products, calculates total of cart
+    and checks if the list is empty
+ """
 from product import Product 
 
 class Cart:
-
+    # Constructor intializes an empty cart
     def __init__(self):
         self.cart = []
     
-
+    #adds new product to cart
     def add_product(self, Product):
         self.cart.append(Product)
 
-
     def remove_product(self, product_id):
-        oldcart = self.cart
-        self.cart.remove(product_id)
-
-        if len(oldcart) < len(self.cart):
+        oldcart = len(self.cart)
+        for item in self.cart :
+            if item.get_id() == product_id:
+                self.cart.remove(item)
+                break
+        if oldcart> len(self.cart):
             return True
         else:
             return False
@@ -36,10 +40,23 @@ class Cart:
         if len(self.cart) == 0:
             return True
         return False
-
+''''
+Test Cases for each of the functions
 
 ella = Cart()
-ella.calculate_total()
+print(ella.calculate_total())
+print(ella.is_empty())
 
-
-
+apple = Product("4050", "Apples(1lbs)", 2.99)
+pasta = Product("1100", "Rigatoni ", 0.99)
+vitamin_water = Product("9005", "Lime Gatorade", 1.09)
+ella.add_product(apple)
+ella.add_product(pasta)
+ella.add_product(vitamin_water)
+print(ella.get_items())
+print(ella.is_empty())
+print(ella.calculate_total())
+print(ella.remove_product(apple.get_id()))
+print(ella.get_items()) '''
+if __name__ == "__main__":
+    print()

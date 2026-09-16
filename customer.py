@@ -6,7 +6,7 @@ class Customer:
     def __init__(self, customer_id, name):
         self.customer_id = customer_id
         self.name = name
-        self.cart = []
+        self.cart = Cart()
 
     def get_id(self):
         return f"{self.customer_id}"

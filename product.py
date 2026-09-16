@@ -13,10 +13,10 @@ class Product:
         return f"{self.name}"
 
     def get_price(self):
-        return f"{self.price}"
+        return self.price
 
 pr1 = Product(1, "Product 1", 10.99)
 
-print(pr1.get_id())
-print(pr1.get_name())
-print(pr1.get_price())
+#print(pr1.get_id())
+#print(pr1.get_name())
+#print(pr1.get_price())
