@@ -1,9 +1,9 @@
-""" This class creatings Shopping Carts for customers, adds and removes products, calculates total of cart
-    and checks if the list is empty
- """
+
 from product import Product 
 
 class ShoppingCart:
+    """ This class creatings Shopping Carts for customers, adds and removes products, calculates total of cart
+    and checks if the list is empty"""
     def __init__(self):
         """Constructor intializes an empty cart as a list"""
         self.cart = []

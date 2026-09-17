@@ -4,7 +4,7 @@ from product import Product
 
 
 class Store:
-
+    """A store class with customers and products. You can add and find both customers and products"""
 
     def __init__(self):
         """Initializes a store class with an empty list of products and customers"""

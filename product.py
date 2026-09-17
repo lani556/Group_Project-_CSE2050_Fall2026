@@ -1,6 +1,7 @@
 #Product Module
 
 class Product:
+    """Product class that creates product objects. You can return the product id, name, and price"""
     def __init__(self, product_id, name, price):
         """Initializes a product object with a Product ID, name, and price"""
         self.product_id = product_id
