@@ -6,20 +6,20 @@ class ShoppingCart:
     and checks if the list is empty"""
     def __init__(self):
         """Constructor intializes an empty cart as a list"""
-        self.cart = []
+        self.items = []
     
     def add_product(self, Product):
         """Adds new products to the shopping cart."""
-        self.cart.append(Product)
+        self.items.append(Product)
 
     def remove_product(self, product_id):
         """Removes products from the shopping cart by Product Id"""
-        oldcart = len(self.cart)
-        for item in self.cart :
+        oldcart = len(self.items)
+        for item in self.items :
             if item.get_id() == product_id:
-                self.cart.remove(item)
+                self.items.remove(item)
                 break
-        if oldcart> len(self.cart):
+        if oldcart> len(self.items):
             return True
         else:
             return False
@@ -27,13 +27,13 @@ class ShoppingCart:
 
     def get_items(self):
         """Returns the cart list"""
-        return self.cart
+        return self.items
 
     def calculate_total(self):
         """Returns the total value of the cart as a float"""
         sum_of_prices = 0.00
 
-        for item in self.cart:
+        for item in self.items:
             sum_of_prices += item.get_price()
         
         return sum_of_prices 
@@ -41,7 +41,7 @@ class ShoppingCart:
 
     def is_empty(self):
         """Checks if the cart is empty"""
-        if len(self.cart) == 0:
+        if len(self.items) == 0:
             return True
         return False
 ''''
