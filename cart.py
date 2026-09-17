@@ -44,10 +44,10 @@ class ShoppingCart:
         if len(self.items) == 0:
             return True
         return False
-''''
-Test Cases for each of the functions
 
-ella = Cart()
+#Test Cases for each of the functions
+
+ella = ShoppingCart()
 print(ella.calculate_total())
 print(ella.is_empty())
 
@@ -61,6 +61,4 @@ print(ella.get_items())
 print(ella.is_empty())
 print(ella.calculate_total())
 print(ella.remove_product(apple.get_id()))
-print(ella.get_items()) '''
-if __name__ == "__main__":
-    print()
+print(ella.get_items()) 
