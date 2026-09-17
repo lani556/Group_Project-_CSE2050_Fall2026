@@ -7,12 +7,14 @@ class Store:
 
 
     def __init__(self):
+        """Initializes a store class with an empty list of products and customers"""
         self.products = []
         self.customers = []
 
     def add_product(self, product):
+        """Add products to the store's product lists"""
         for item in self.products:
-            if item.get_id() == product.get_id():
+            if item.get_id() == product.get_id(): #If an item in the store has the same product id as the product you want to add, it will not add the item
                 return False
 
         self.products.append(product)
@@ -20,13 +22,15 @@ class Store:
 
     
     def find_product(self, product_id):
+        """Returns the product by the product id"""
         for item in self.products:
-            if item.get_id() == product_id:
+            if item.get_id() == product_id: #Will only return product if the product id is in the store
                 return item
 
         return None
 
     def add_customer(self, customer):
+        """Adds a new customer to the Store's customer list"""
         for c in self.customers:
             if c.get_id() == customer.get_id():
                 return False
@@ -35,6 +39,7 @@ class Store:
         return True
 
     def find_customer(self, customer_id):
+        """Finds a customer in the store by their customer id"""
         for c in self.customers:
             if c.get_id() == customer_id:
                 return c
