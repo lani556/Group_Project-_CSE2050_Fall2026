@@ -45,6 +45,10 @@ class ShoppingCart:
             return True
         return False
 
+    def clear(self):
+        """Removes all items from cart"""
+        self.items = []
+
 #Test Cases for each of the functions
 
 ella = ShoppingCart()
