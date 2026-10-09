@@ -23,8 +23,7 @@ class linkedList:
             self.add_first(item)
         else:
             
-            self._tail.next = Node(item)
-            self._tail = self._tail.next
+            self._tail = Node(item)
             self.counter += 1
 
     def remove_first(self):
