@@ -116,7 +116,16 @@ class TestOrder(unittest.TestCase):
         self.assertEqual(order1.calculate_total(), 10.99+12.99)
 
 class TestLinkedList(unittest.TestCase):
-    pass
+
+    def test_add_first(self):
+        pass
+    def test_add_last(self):
+        pass
+    def test_remove_first(self):
+        pass
+    def test_size(self):
+        pass
+    
 
 class TestQrderQueue(unittest.TestCase):
     def test_FIFO_order(self):
