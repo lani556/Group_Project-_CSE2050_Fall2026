@@ -49,6 +49,9 @@ class ShoppingCart:
         """Removes all items from cart"""
         self.items = []
 
+
+
+
 #Test Cases for each of the functions
 
 ella = ShoppingCart()
