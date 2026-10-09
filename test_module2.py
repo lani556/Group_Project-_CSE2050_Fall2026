@@ -62,6 +62,7 @@ class TestStore(unittest.TestCase):
         store.process_next_order()
         self.assertEqual(store.get_order_history(), [order1])
 
+    #These I don't think are necessary but doesn't hurt our grade to keep them.
     def test_add_product(self):
         store = Store()
         product1 = Product("P001", "Product 1", 10.99)
@@ -101,31 +102,58 @@ class TestStore(unittest.TestCase):
 
 class TestOrder(unittest.TestCase):
     def test_order_creation(self):
-        pass
+        order1 = Order("O001", "C001", ["Pepsi", "Coke"])
+        self.assertEqual(order1.get_id(), "O001")
+        self.assertEqual(order1.get_customer(), "C001")
+        self.assertEqual(order1.get_status(), "PENDING")
+        self.assertEqual(order1.get_items(), ["Pepsi", "Coke"])
 
     def test_total(self):
-        pass
+        product1 = Product("P001", "Product 1", 10.99)
+        product2 = Product("P002", "Product 2", 12.99)
+        order1 = Order("O001", "C001", [product1, product2])
+
+        self.assertEqual(order1.calculate_total(), 10.99+12.99)
 
 class TestLinkedList(unittest.TestCase):
     pass
 
+class TestQrderQueue(unittest.TestCase):
+    def test_FIFO_order(self):
+        queue1 = OrderQueue()
+        self.assertIsNone(queue1.dequeue())
+        queue1.enqueue("how")
+        queue1.enqueue("are")
+        queue1.enqueue("you")
+        self.assertEqual(queue1.queue[0], "how")
+        self.assertEqual(queue1.queue[-1], "you")
+
+        
+    def test_peek(self):
+        queue1 = OrderQueue()
+        self.assertIsNone(queue1.peek())
+        queue1.enqueue("how")
+        queue1.enqueue("are")
+        queue1.enqueue("you")
+        self.assertEqual(queue1.peek(), "how")
+
+    def test_dequeue(self):
+        queue1 = OrderQueue()
+        self.assertIsNone(queue1.dequeue())
+        queue1.enqueue("how")
+        queue1.enqueue("are")
+        queue1.enqueue("you")
+
+        self.assertEqual(queue1.dequeue(), "how")
+        self.assertEqual(queue1.queue, ["are", "you"])
+
 class TestStack(unittest.TestCase):
     def test_LIFO_order(self):
         pass
-
     def test_peek(self):
         pass
 
     def test_pop(self):
-        pass
-
-class TestOrderQueue(unittest.TestCase):
-    def test_FIFO_order(self):
-        pass
-    def test_peek(self):
-        pass
-
-    def test_dequeue(self):
         pass
     
 

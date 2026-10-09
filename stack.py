@@ -1,9 +1,9 @@
-
+#from linkedlist import LinkedList
 
 class Stack:
     def __init__(self):
         """Initializes an empty stack"""
-        self.items = [] #This needs to be linked list
+        self.items = [] #This needs to be linked list i think -> LinkedList()
 
     def push(self, item):
         """Adds an item to the top of the stack"""
