@@ -5,6 +5,7 @@ from stack import Stack
 from store import Store
 from customer import Customer
 from product import Product
+from linkedList import linkedList
 
 class TestStore(unittest.TestCase):
 
@@ -118,12 +119,34 @@ class TestOrder(unittest.TestCase):
 class TestLinkedList(unittest.TestCase):
 
     def test_add_first(self):
-        pass
+        ll1 = linkedList()
+        l = ["apples","bananas", "juice"]
+        count = 0
+        for item in l:
+            ll1.add_first(item)
+            count += 1
+            self.assertEqual(ll1.get_first(), item)
+            self.assertEqual(ll1.size(), count)
+
     def test_add_last(self):
-        pass
+        ll2 = linkedList()
+        l = ["apples","bananas", "juice"]
+        count = 0
+        last = l[0]
+        for item in l:
+            ll2.add_last(item)
+            count += 1
+            self.assertEqual(ll2.get_first(), last)
+            self.assertEqual(ll2.size(), count)
+            last = item
+
+        
+
+
+
     def test_remove_first(self):
         pass
-    def test_size(self):
+    def test_isempty(self):
         pass
     
 
