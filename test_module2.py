@@ -140,10 +140,6 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual(ll2.size(), count)
             last = item
 
-        
-
-
-
     def test_remove_first(self):
         pass
     def test_isempty(self):
@@ -191,4 +187,5 @@ class TestStack(unittest.TestCase):
 
 
 
-unittest.main()
+if __name__== "__main__":
+    unittest.main()
