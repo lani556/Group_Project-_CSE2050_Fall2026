@@ -3,8 +3,10 @@ from order import Order
 from store import Store
 from customer import Customer
 from product import Product
+from linkedList import Node, linkedList
 
 class TestStore(unittest.TestCase):
+
     def test_add_product(self):
         store = Store()
         product1 = Product("P001", "Product 1", 10.99)
@@ -78,5 +80,8 @@ class TestStore(unittest.TestCase):
         customer1.get_cart().add_product(product1)
         order = store.checkout("C001")
         pass"""
+
+
+class TestLinkedList(unittest.TestCase):
 
 unittest.main()
