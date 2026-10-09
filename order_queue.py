@@ -1,7 +1,9 @@
+#from linkedList import LinkedList
+
 class OrderQueue():
     def __init__(self):
         """Initializes an empty order queue"""
-        self.queue = [] #This should be linkedlist
+        self.queue = [] #This should be linkedlist i think -> LinkedList()
 
     def enqueue(self, item):
         """Adds an item to the end of the queue"""

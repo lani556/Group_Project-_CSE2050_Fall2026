@@ -73,7 +73,6 @@ class Store:
             if cart.is_empty():
                 return None  # Cart is empty
 
-            ##Need to implement this with OrderQueue
             order_id = f"O{self.order_counter + 1:03d}"  # Generate a new order ID (?)
             new_order = Order(order_id, customer, cart.get_items())
             self.orders.append(new_order) 
@@ -96,7 +95,19 @@ class Store:
         """Returns a list of all processed orders"""
         return self.processed_orders.items
 
+
+#Testing
 store = Store()
+customer1 = Customer("C001", "Customer 1")
+product1 = Product("P001", "Product 1", 10.99)
+store.add_customer(customer1)  
+store.add_product(product1)
+customer1.get_cart().add_product(product1)
+order1 = store.checkout("C001")
+print(order1)
+print(store.get_order_history())
+
+"""store = Store()
 mouse = Product("P100", "Wireless Mouse", 29.99)
 keyboard = Product("P101", "Keyboard", 59.99)
 store.add_product(mouse)
@@ -106,7 +117,7 @@ store.add_customer(customer)
 cart = customer.get_cart()
 cart.add_product(mouse)
 cart.add_product(keyboard)
-print(cart.calculate_total())
+print(cart.calculate_total())"""
 
 
 
