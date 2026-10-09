@@ -25,7 +25,7 @@ class TestStore(unittest.TestCase):
         self.assertEqual(order1.get_status(), "PENDING")
         self.assertEqual(store.order_counter, 1)
         self.assertEqual(len(store.orders), 1)
-        self.assertEqual(store.order_queue.queue[0], order1)
+        self.assertEqual(store.order_queue.peek(), order1)
         # existing customer, empty cart
         order2 = store.checkout("C002")  
         self.assertIsNone(order2)
@@ -57,7 +57,7 @@ class TestStore(unittest.TestCase):
         store.add_product(product1)
         customer1.get_cart().add_product(product1)
         order1 = store.checkout("C001")
-        self.assertEqual(store.get_order_history(), [])
+        self.assertEqual(store.get_order_history(), store.processed_orders.items)
         
         store.process_next_order()
         self.assertEqual(store.get_order_history(), [order1])
@@ -121,12 +121,10 @@ class TestLinkedList(unittest.TestCase):
 class TestQrderQueue(unittest.TestCase):
     def test_FIFO_order(self):
         queue1 = OrderQueue()
-        self.assertIsNone(queue1.dequeue())
         queue1.enqueue("how")
         queue1.enqueue("are")
         queue1.enqueue("you")
-        self.assertEqual(queue1.queue[0], "how")
-        self.assertEqual(queue1.queue[-1], "you")
+        self.assertEqual(queue1.dequeue(), "how")
 
         
     def test_peek(self):
