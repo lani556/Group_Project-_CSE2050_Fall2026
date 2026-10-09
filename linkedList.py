@@ -21,9 +21,10 @@ class linkedList:
     def add_last(self,item):
         if self._head is None:
             self.add_first(item)
-        else:
-            
-            self._tail = Node(item)
+
+        if self.counter == 1:   
+            self._tail = Node(self._tail, item)
+
             self.counter += 1
 
     def remove_first(self):

@@ -136,9 +136,9 @@ class TestLinkedList(unittest.TestCase):
         for item in l:
             ll2.add_last(item)
             count += 1
-            self.assertEqual(ll2.get_first(), last)
             self.assertEqual(ll2.size(), count)
-            last = item
+            self.assertEqual(ll2._tail.next, item)
+        
 
     def test_remove_first(self):
         pass
