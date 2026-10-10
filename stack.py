@@ -7,7 +7,7 @@ class Stack:
 
     def push(self, item):
         """Adds an item to the top of the stack"""
-        self.items.add_last(item, )
+        self.items.add_last(item)
 
     def pop(self):
         """Removes and returns the item from the top of the stack. Returns None if empty"""
