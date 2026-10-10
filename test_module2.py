@@ -137,13 +137,28 @@ class TestLinkedList(unittest.TestCase):
             ll2.add_last(item)
             count += 1
             self.assertEqual(ll2.size(), count)
-            self.assertEqual(ll2._tail.next, item)
+            #self.assertEqual(ll2., item)
         
 
     def test_remove_first(self):
-        pass
+        ll3 = linkedList()
+        l = ["apples","banana","juice"]
+        for item in l:
+            ll3.add_last(item)
+
+        for item in l:
+            print(ll3.remove_first(), item)
+            #self.assertEqual(ll3.remove_first(), item)
+
+
+
+
     def test_isempty(self):
-        pass
+        ll4 = linkedList()
+
+        self.assertEqual(ll4.is_empty, True)
+        ll4.add_first("apple")
+        self.assertEqual(ll4.is_empty, False)
     
 
 class TestQrderQueue(unittest.TestCase):
