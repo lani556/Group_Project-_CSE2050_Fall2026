@@ -1,0 +1,11 @@
+LinkedList.add_first
+LinkedList.add_last
+LinkedList.remove_first
+Stack.push
+Stack.pop
+
+OrderQueue.enqueue -> O(1)
+OrderQueue.dequeue -> O(1)
+Store.find_product -> O(n)
+Store.find_customer -> O(n)
+Store.find_order -> O(n)
