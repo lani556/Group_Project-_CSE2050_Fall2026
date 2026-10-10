@@ -114,7 +114,7 @@ class TestOrder(unittest.TestCase):
         product2 = Product("P002", "Product 2", 12.99)
         order1 = Order("O001", "C001", [product1, product2])
 
-        self.assertEqual(order1.calculate_total(), 10.99+12.99)
+        self.assertEqual(order1.calculate_total(), 10.99 + 12.99)
 
 class TestLinkedList(unittest.TestCase):
 
