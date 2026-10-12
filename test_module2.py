@@ -187,7 +187,15 @@ class TestQrderQueue(unittest.TestCase):
 
 class TestStack(unittest.TestCase):
     def test_LIFO_order(self):
-        pass
+        stackit = Stack()
+        list_ = ["you", "are", "how"]
+        count = 0
+        for item in list_:
+            stackit.push(item)
+            count += 1
+
+
+
     def test_peek(self):
         pass
 
