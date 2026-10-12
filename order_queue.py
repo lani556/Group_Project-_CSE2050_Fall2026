@@ -1,4 +1,4 @@
-from linked_List import LinkedList
+from linked_list import LinkedList
 from stack import Stack
 
 class OrderQueue():
