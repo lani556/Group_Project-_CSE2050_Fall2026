@@ -145,7 +145,8 @@ class TestLinkedList(unittest.TestCase):
         ll3 = LinkedList()
         l = ["apples","banana","juice"]
         for item in l:
-            ll3.add_last(item)
+            ll3.add_first(item)
+        l = ["juice","banana","apples"]
         for item in l:
             self.assertEqual(ll3.remove_first(), item)
 
