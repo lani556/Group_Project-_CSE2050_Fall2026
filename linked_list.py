@@ -32,7 +32,7 @@ class LinkedList:
         
 
     def remove_first(self):
-        if self._head is None:
+        if self._head is None and self._tail is None:
             return None 
         prev_first = self._head.data
         self._head = self._head.next
