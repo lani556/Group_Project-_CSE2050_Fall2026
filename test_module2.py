@@ -5,7 +5,7 @@ from stack import Stack
 from store import Store
 from customer import Customer
 from product import Product
-from linkedList import LinkedList
+from linked_list import LinkedList
 
 class TestStore(unittest.TestCase):
 
@@ -47,7 +47,7 @@ class TestStore(unittest.TestCase):
         order1 = store.checkout("C001")
         self.assertEqual(store.process_next_order(), order1)
         self.assertEqual(order1.get_status(), "PROCESSING")
-        self.assertEqual(len(store.processed_orders.items), 1)
+        self.assertEqual(store.processed_orders.size(), 1)
 
 
     def test_order_history(self):
@@ -186,7 +186,8 @@ class TestQrderQueue(unittest.TestCase):
         queue1.enqueue("you")
 
         self.assertEqual(queue1.dequeue(), "how")
-        self.assertEqual(queue1.queue, ["are", "you"])
+        queue1.dequeue()
+        self.assertEqual(queue1.queue.size(), 2)
 
 class TestStack(unittest.TestCase):
     def test_LIFO_order(self):

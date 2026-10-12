@@ -1,4 +1,4 @@
-from linkedList import LinkedList
+from linked_list import LinkedList
 from stack import Stack
 
 class OrderQueue():
@@ -22,7 +22,7 @@ class OrderQueue():
         if self.is_empty():
             return None
         else:
-            return self.queue.peek()
+            return self.queue._head.data
 
     def size(self):
         """Returns the number of items in the queue"""
