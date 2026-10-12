@@ -5,7 +5,7 @@ from stack import Stack
 from store import Store
 from customer import Customer
 from product import Product
-from linked_List import LinkedList
+from linked_list import LinkedList
 
 class TestStore(unittest.TestCase):
 
