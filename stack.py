@@ -1,4 +1,4 @@
-from linked_List import LinkedList
+from linked_list import LinkedList
 
 class Stack:
     def __init__(self):
