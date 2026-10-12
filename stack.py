@@ -1,4 +1,4 @@
-from linked_list import LinkedList
+from linked_List import LinkedList
 
 class Stack:
     def __init__(self):
@@ -13,8 +13,7 @@ class Stack:
         """Removes and returns the item from the top of the stack. Returns None if empty"""
         if self.is_empty():
             return None
-        else:
-            self.items.counter -= 1
+        else:          
             return self.items.remove_first()
 
     def peek(self):

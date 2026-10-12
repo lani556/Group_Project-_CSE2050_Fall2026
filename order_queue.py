@@ -1,4 +1,4 @@
-from linked_list import LinkedList
+from linked_List import LinkedList
 from stack import Stack
 
 class OrderQueue():
@@ -15,7 +15,6 @@ class OrderQueue():
         if self.is_empty():
             return None
         else:
-            self.queue.counter -= 1
             return self.queue.remove_first()
 
     def peek(self):
