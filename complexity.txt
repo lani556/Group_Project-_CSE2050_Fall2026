@@ -1,6 +1,6 @@
-LinkedList.add_first
-LinkedList.add_last
-LinkedList.remove_first
+LinkedList.add_first -> O(1)
+LinkedList.add_last -> O(1)
+LinkedList.remove_first -> O(1)
 Stack.push
 Stack.pop
 
