@@ -23,11 +23,15 @@ class LinkedList:
     def add_last(self,item):
         node = Node(item)
         if self._head is None:
-            self._head = node   
-        else:
-            self._tail =  Node(self._tail, node)
+            self._head = node  
+            self.counter += 1 
+        elif self.counter == 1:
+            self._tail = node
             self._head.next = self._tail
-        self.counter += 1 
+            self.counter += 1 
+        else:
+            self._tail.next = node
+            self.counter += 1 
         
         
 
