@@ -14,6 +14,7 @@ class Stack:
         if self.is_empty():
             return None
         else:
+            self.items.counter -= 1
             return self.items.remove_first()
 
     def peek(self):

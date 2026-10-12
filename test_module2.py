@@ -195,14 +195,25 @@ class TestStack(unittest.TestCase):
         for item in list_:
             stackit.push(item)
             count += 1
+            self.assertEqual(stackit.size(), count)
+        self.assertEqual(stackit.pop(), "how")
 
 
 
     def test_peek(self):
-        pass
+        stackit = Stack()
+        list_ = ["you", "are", "how"]
+        for item in list_:
+            stackit.push(item)
+        self.assertEqual(stackit.peek(), "how")
 
     def test_pop(self):
-        pass
+        stackit = Stack()
+        list_ = ["you", "are", "how"]
+        for item in list_:
+            stackit.push(item)
+        self.assertEqual(stackit.pop(), "how")
+        self.assertEqual(stackit.size(), 2)
     
 
 
