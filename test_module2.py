@@ -137,7 +137,8 @@ class TestLinkedList(unittest.TestCase):
             ll2.add_last(item)
             count += 1
             self.assertEqual(ll2.size(), count)
-            #self.assertEqual(ll2., item)
+            if count < 1:
+                self.assertEqual(ll2._tail.data.data, item)
         
 
     def test_remove_first(self):
@@ -145,9 +146,8 @@ class TestLinkedList(unittest.TestCase):
         l = ["apples","banana","juice"]
         for item in l:
             ll3.add_last(item)
-        #l = ["juice","banana","apples"]
         for item in l:
-            #self.assertEqual(ll3.remove_first(), item)
+            self.assertEqual(ll3.remove_first(), item)
 
 
 
