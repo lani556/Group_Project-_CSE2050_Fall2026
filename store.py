@@ -73,7 +73,7 @@ class Store:
             if cart.is_empty():
                 return None  # Cart is empty
 
-            order_id = f"O{self.order_counter + 1:03d}"  # Generate a new order ID (?)
+            order_id = f"O{self.order_counter + 1}"  # Generate a new order ID (?)
             new_order = Order(order_id, customer, cart.get_items())
             self.orders.append(new_order) 
             self.order_queue.enqueue(new_order)  
@@ -93,11 +93,27 @@ class Store:
 
     def get_order_history(self):
         """Returns a list of all processed orders"""
-        return self.processed_orders.items
+        ord_hist = []
+        for i in self.orders[::-1]:
+            if i.status == "PROCESSING":
+                ord_hist.append(i)
+        return ord_hist
 
 
+#Testing
+print("this is where testing begins")
+# Create the store
 store = Store()
-# Create products
+customer1 = Customer("C001", "Customer 1")
+product1 = Product("P001", "Product 1", 10.99)
+store.add_customer(customer1)  
+store.add_product(product1)
+customer1.get_cart().add_product(product1)
+order1 = store.checkout("C001")
+print(order1)
+print(store.get_order_history())
+
+"""store = Store()
 mouse = Product("P100", "Wireless Mouse", 29.99)
 keyboard = Product("P101", "Keyboard", 59.99)
 headphones = Product("P102", "Headphones", 39.99)
