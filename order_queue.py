@@ -35,7 +35,7 @@ class OrderQueue():
 
 
 
-test1 = OrderQueue()
+"""test1 = OrderQueue()
 test1.enqueue("Order 1")
 print(test1.dequeue())
-print(test1.size())
+print(test1.size())"""
