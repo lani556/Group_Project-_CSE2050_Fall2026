@@ -15,6 +15,7 @@ class OrderQueue():
         if self.is_empty():
             return None
         else:
+            self.queue.counter -= 1
             return self.queue.remove_first()
 
     def peek(self):
@@ -34,6 +35,7 @@ class OrderQueue():
 
 
 
-# test1 = OrderQueue()
-# test1.enqueue("Order 1")
-# print(test1.dequeue())
+test1 = OrderQueue()
+test1.enqueue("Order 1")
+print(test1.dequeue())
+print(test1.size())
