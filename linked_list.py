@@ -44,7 +44,7 @@ class LinkedList:
         return self._head.data
 
     def is_empty(self):
-        return True if self._head is None and self._tail is None else False
+        return True if self._head is None and self._tail is None and self.counter == 0 else False
 
     def size(self):
         return self.counter
