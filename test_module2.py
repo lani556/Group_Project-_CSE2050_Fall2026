@@ -145,9 +145,8 @@ class TestLinkedList(unittest.TestCase):
         l = ["apples","banana","juice"]
         for item in l:
             ll3.add_last(item)
-
+        #l = ["juice","banana","apples"]
         for item in l:
-            print(ll3.remove_first(), item)
             #self.assertEqual(ll3.remove_first(), item)
 
 
@@ -156,9 +155,9 @@ class TestLinkedList(unittest.TestCase):
     def test_isempty(self):
         ll4 = LinkedList()
 
-        self.assertEqual(ll4.is_empty, True)
+        self.assertEqual(ll4.is_empty(), True)
         ll4.add_first("apple")
-        self.assertEqual(ll4.is_empty, False)
+        self.assertEqual(ll4.is_empty(), False)
     
 
 class TestQrderQueue(unittest.TestCase):

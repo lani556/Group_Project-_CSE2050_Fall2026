@@ -35,8 +35,8 @@ class LinkedList:
         if self._head is None:
             return None 
         prev_first = self._head.data
-        print(prev_first)
         self._head = self._head.next
+        self.counter -= 1
         return prev_first
         
 
