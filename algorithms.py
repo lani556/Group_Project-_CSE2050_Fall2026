@@ -1,20 +1,26 @@
 from product import Product
 from store import Store 
-def fewest_coins(coins, amount, K ):
-  known_cache = {}
-  coins = sorted(coins)
-  coin_count = 0
-
+def fewest_coins(coins, amount, coin_cache = None ):
+  coins.sorted(reverse = True)
+  a = amount
+  if coin_cache is None :
+    coin_cache = {}
+  if amount in coin_cache : return coin_cache[amount]
   for c in coins:
-    c == amount: return 1
-    if c < amount:
-      
-    
-    
+    if amount == c: 
+      coin_cache[amount] = 1
+    else:
+      coin_count = amount // c 
+      a = amount % c
+      coin_cache[amount] = coin_count + fewest_coins(a, coins, coin_cache)  
 
+  return coin_cache[amount]
 
+  
+  
+
+"""this algorthim compares the product ids to find the largest and moves it to the end and repeats moving the next largest to the next spot """
 def selection_sort(products):
-  """this algorthim compares the product ids to find the largest and moves it to the end and repeats moving the next largest to the next spot """"
   length = len(products)
   for i in range(length - 1):
     max = 0
@@ -51,3 +57,10 @@ def insertion_sort(products):
       products[j], products[j-1] = products[j-1], products[j]
       j -= 1
     return products
+
+
+
+
+if __name__ == "__main__":
+  coins = [1,5,10,25]
+  print(fewest_coins(coins,12))
