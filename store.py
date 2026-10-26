@@ -121,8 +121,9 @@ if __name__ == '__main__':
     store.add_product(mouse)
     store.add_product(keyboard)
     store.add_product(headphones)
-    store.insertion_sort_products()
+    store.bubble_sort_products()
     print([p.get_id() for p in store.products])
+    print(store.recursive_catalog_total())
 
     """print("this is where testing begins")
 
