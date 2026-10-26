@@ -36,4 +36,9 @@ def bubbble_sort(products):
   return products
 
 def insertion_sort(products):
-  for i in range(1, len())
+  for i in range(1, len(products)):
+    j = i
+    while j > 0 and products[j - 1].get_id() > products[j].get_id():
+      products[j], products[j-1] = products[j-1], products[j]
+      j -= 1
+    return products
