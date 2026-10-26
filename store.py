@@ -3,6 +3,7 @@ from stack import Stack
 from order_queue import OrderQueue
 from customer import Customer
 from product import Product
+import algorithms
 
 
 
@@ -99,55 +100,89 @@ class Store:
                 ord_hist.append(i)
         return ord_hist
 
+    def bubble_sort_products(self):
+        return algorithms.bubble_sort(self.products)
+
+    def insertion_sort_products(self):
+        return algorithms.insertion_sort(self.products)
+
+    def recursive_catalog_total(self):
+        return algorithms.recursive_total_price(self.products)
+
+
 
 #Testing
-print("this is where testing begins")
-# Create the store
-store = Store()
-customer1 = Customer("C001", "Customer 1")
-product1 = Product("P001", "Product 1", 10.99)
-store.add_customer(customer1)  
-store.add_product(product1)
-customer1.get_cart().add_product(product1)
-order1 = store.checkout("C001")
-print(order1)
-print(store.get_order_history())
 
-"""store = Store()
-mouse = Product("P100", "Wireless Mouse", 29.99)
-keyboard = Product("P101", "Keyboard", 59.99)
-headphones = Product("P102", "Headphones", 39.99)
-# Add products to the store
-print(store.add_product(mouse)) # Output: True
-print(store.add_product(keyboard)) # Output: True
-print(store.add_product(headphones)) # Output: True
-# Create two customers
-alex = Customer("C100", "Alex")
-sam = Customer("C101", "Sam")
-# Add customers to the store
-print(store.add_customer(alex)) # Output: True
-print(store.add_customer(sam)) # Output: True
-# Alex creates an order
-alex_cart = alex.get_cart()
-alex_cart.add_product(mouse)
-alex_cart.add_product(keyboard)
-print(alex_cart.calculate_total()) # Output: 89.98
-print(alex_cart.is_empty()) # Output: False
-alex_order = store.checkout("C100")
-print(alex_order.get_id()) # Output: O1
-print(alex_order.get_customer().get_name()) # Output: Alex
-print(alex_order.calculate_total()) # Output: 89.98
-print(alex_order.get_status()) # Output: PENDING
-print(alex_cart.is_empty()) # Output: True
-# Sam creates an order
-sam_cart = sam.get_cart()
-sam_cart.add_product(headphones)
-print(sam_cart.calculate_total()) # Output: 39.99
-sam_order = store.checkout("C101")
-print(sam_order.get_id()) # Output: O2
-print(sam_order.get_customer().get_name()) # Output: Sam
-print(sam_order.get_status()) # Output: PENDING
-# Process the orders
-first_order = store.process_next_order()
-print(first_order.get_id()) # Output: O1
-print(first_order.get_status())"""
+if __name__ == '__main__':
+    store = Store()
+    mouse = Product("P300", "Mouse", 29.99)
+    keyboard = Product("P100", "Keyboard", 59.99)
+    headphones = Product("P200", "Headphones", 39.99)
+    store.add_product(mouse)
+    store.add_product(keyboard)
+    store.add_product(headphones)
+    store.bubble_sort_products()
+    print([p.get_id() for p in store.products])
+    print(store.recursive_catalog_total())
+
+    """print("this is where testing begins")
+
+    # Create the store
+    store = Store()
+    customer1 = Customer("C001", "Customer 1")
+    product1 = Product("P001", "Product 1", 10.99)
+    store.add_customer(customer1)  
+    store.add_product(product1)
+    customer1.get_cart().add_product(product1)
+    order1 = store.checkout("C001")
+    print(order1)
+    print(store.get_order_history())
+    store = Store()
+    mouse = Product("P100", "Wireless Mouse", 29.99)
+    keyboard = Product("P101", "Keyboard", 59.99)
+    headphones = Product("P102", "Headphones", 39.99)
+    # Add products to the store
+    print(store.add_product(mouse)) # Output: True
+    print(store.add_product(keyboard)) # Output: True
+    print(store.add_product(headphones)) # Output: True
+    # Create two customers
+    alex = Customer("C100", "Alex")
+    sam = Customer("C101", "Sam")
+    # Add customers to the store
+    print(store.add_customer(alex)) # Output: True
+    print(store.add_customer(sam)) # Output: True
+    # Alex creates an order
+    alex_cart = alex.get_cart()
+    alex_cart.add_product(mouse)
+    alex_cart.add_product(keyboard)
+    print(alex_cart.calculate_total()) # Output: 89.98
+    print(alex_cart.is_empty()) # Output: False
+    alex_order = store.checkout("C100")
+    print(alex_order.get_id()) # Output: O1
+    print(alex_order.get_customer().get_name()) # Output: Alex
+    print(alex_order.calculate_total()) # Output: 89.98
+    print(alex_order.get_status()) # Output: PENDING
+    print(alex_cart.is_empty()) # Output: True
+    # Sam creates an order
+    sam_cart = sam.get_cart()
+    sam_cart.add_product(headphones)
+    print(sam_cart.calculate_total()) # Output: 39.99
+    sam_order = store.checkout("C101")
+    print(sam_order.get_id()) # Output: O2
+    print(sam_order.get_customer().get_name()) # Output: Sam
+    print(sam_order.get_status()) # Output: PENDING
+    # Process the orders
+    first_order = store.process_next_order()
+    print(first_order.get_id()) # Output: O1
+    print(first_order.get_status())
+
+    second_order = store.process_next_order()
+    print(second_order.get_id()) # Output: O2
+    print(second_order.get_status()) # Output: PROCESSING
+    # No orders are left in the waiting queue
+    print(store.process_next_order()) # Output: None
+    # Check order history
+    history = store.get_order_history()
+    print(history[0].get_id()) # Output: O2
+    print(history[1].get_id()) # Output: O1
+    """

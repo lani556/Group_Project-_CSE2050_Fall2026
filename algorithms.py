@@ -35,12 +35,14 @@ def selection_sort(products):
 def binary_search(products, product_id):
   pass
 def recursive_total_price(products):
+  """Calculates the total price of products in a list, recursively"""
   if len(products) == 0:
     return 0
   else:
     return products[0].price + recursive_total_price(products[1:])
 
-def bubbble_sort(products):
+def bubble_sort(products):
+  """Sorts products by id in-place via bubble sort"""
   for i in range(len(products) - 1):
     swapped = True
     for j in range(len(products) - 1 - i):
@@ -48,9 +50,9 @@ def bubbble_sort(products):
         products[j], products[j+1] = products[j+1], products[j]
         swapped = True 
     if not swapped: break
-  return products
 
 def insertion_sort(products):
+  """Sorts products by id in-place via insertion sort"""
   for i in range(1, len(products)):
     j = i
     while j > 0 and products[j - 1].get_id() > products[j].get_id():
