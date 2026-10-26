@@ -35,7 +35,7 @@ def recursive_total_price(products):
   else:
     return products[0].price + recursive_total_price(products[1:])
 
-def bubbble_sort(products):
+def bubble_sort(products):
   """Sorts products by id in-place via bubble sort"""
   for i in range(len(products) - 1):
     swapped = True

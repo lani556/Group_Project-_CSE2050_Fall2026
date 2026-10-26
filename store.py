@@ -101,10 +101,14 @@ class Store:
         return ord_hist
 
     def bubble_sort_products(self):
-        algorithms.bubbble_sort(self.products)
+        algorithms.bubble_sort(self.products)
 
     def insertion_sort_products(self):
         algorithms.insertion_sort(self.products)
+
+    def recursive_catalog_total(self):
+        al
+
 
 
 #Testing
