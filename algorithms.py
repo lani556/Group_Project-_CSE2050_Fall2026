@@ -1,8 +1,17 @@
 from product import Product
 from store import Store 
-def fewest_coins(coins, amount):
-  coin = [.01,.05,.10,.25]
-  cache = {}
+def fewest_coins(coins, amount, K ):
+  known_cache = {}
+  coins = sorted(coins)
+  coin_count = 0
+
+  for c in coins:
+    c == amount: return 1
+    if c < amount:
+      
+    
+    
+
 
 def selection_sort(products):
   """this algorthim compares the product ids to find the largest and moves it to the end and repeats moving the next largest to the next spot """"
