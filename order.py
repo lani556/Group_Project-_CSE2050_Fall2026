@@ -3,7 +3,7 @@ class Order:
         """Initializes an order object with an Order ID, customer, and items"""
         self.order_id = order_id
         self.customer = customer
-        self.items = items
+        self.items = list(items)
         self.status = "PENDING"  # Default status is PENDING
 
     def get_id(self):
