@@ -35,14 +35,19 @@ def recursive_total_price(products):
     return products[0].price + recursive_total_price(products[1:])
 
 def bubbble_sort(products):
-  for i in range(len(products) - 1)
+  for i in range(len(products) - 1):
     swapped = True
     for j in range(len(products) - 1 - i):
-      if products[j] > products[j + 1]:
+      if products[j].get_id() > products[j + 1].get_id():
         products[j], products[j+1] = products[j+1], products[j]
         swapped = True 
     if not swapped: break
   return products
 
 def insertion_sort(products):
-  for i in range(1, len())
+  for i in range(1, len(products)):
+    j = i
+    while j > 0 and products[j - 1].get_id() > products[j].get_id():
+      products[j], products[j-1] = products[j-1], products[j]
+      j -= 1
+    return products
