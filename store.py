@@ -3,6 +3,7 @@ from stack import Stack
 from order_queue import OrderQueue
 from customer import Customer
 from product import Product
+import algorithms
 
 
 
@@ -99,9 +100,16 @@ class Store:
                 ord_hist.append(i)
         return ord_hist
 
+    def bubble_sort_products(self):
+        algorithms.bubbble_sort(self.products)
+
+    def insertion_sort_products(self):
+        algorithms.insertion_sort(self.products)
+
 
 #Testing
-print("this is where testing begins")
+"""print("this is where testing begins")
+
 # Create the store
 store = Store()
 customer1 = Customer("C001", "Customer 1")
@@ -112,8 +120,7 @@ customer1.get_cart().add_product(product1)
 order1 = store.checkout("C001")
 print(order1)
 print(store.get_order_history())
-
-"""store = Store()
+store = Store()
 mouse = Product("P100", "Wireless Mouse", 29.99)
 keyboard = Product("P101", "Keyboard", 59.99)
 headphones = Product("P102", "Headphones", 39.99)
@@ -150,4 +157,15 @@ print(sam_order.get_status()) # Output: PENDING
 # Process the orders
 first_order = store.process_next_order()
 print(first_order.get_id()) # Output: O1
-print(first_order.get_status())"""
+print(first_order.get_status())
+
+second_order = store.process_next_order()
+print(second_order.get_id()) # Output: O2
+print(second_order.get_status()) # Output: PROCESSING
+# No orders are left in the waiting queue
+print(store.process_next_order()) # Output: None
+# Check order history
+history = store.get_order_history()
+print(history[0].get_id()) # Output: O2
+print(history[1].get_id()) # Output: O1
+"""
