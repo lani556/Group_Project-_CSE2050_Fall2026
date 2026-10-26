@@ -6,9 +6,9 @@ def fewest_coins(coins, amount, K ):
   coin_count = 0
 
   for c in coins:
-    c == amount: return 1
-    if c < amount:
-      
+    if c == amount: return 1
+    if c < amount: return 1
+  
     
     
 
@@ -44,7 +44,6 @@ def bubble_sort(products):
         products[j], products[j+1] = products[j+1], products[j]
         swapped = True 
     if not swapped: break
-  print(products)
 
 def insertion_sort(products):
   """Sorts products by id in-place via insertion sort"""
@@ -53,4 +52,3 @@ def insertion_sort(products):
     while j > 0 and products[j - 1].get_id() > products[j].get_id():
       products[j], products[j-1] = products[j-1], products[j]
       j -= 1
-  print(products)
