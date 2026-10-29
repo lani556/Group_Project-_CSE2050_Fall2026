@@ -1,5 +1,5 @@
 from product import Product
-from store import Store 
+#from store import Store - commenting out bc it gives an error when running unittest. Uncomment out if you want to test algorithms or test algorithms in the store.py file 
 def fewest_coins(coins, amount, coin_cache = None ):
   coins.sorted(reverse = True)
   a = amount
@@ -58,7 +58,7 @@ def insertion_sort(products):
     while j > 0 and products[j - 1].get_id() > products[j].get_id():
       products[j], products[j-1] = products[j-1], products[j]
       j -= 1
-    return products
+  return products
 
 
 
