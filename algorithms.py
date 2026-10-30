@@ -1,7 +1,7 @@
 from product import Product
 #from store import Store - commenting out bc it gives an error when running unittest. Uncomment out if you want to test algorithms or test algorithms in the store.py file 
 import store
-def fewest_coins(coins, amount, coin_cache = None ):
+def fewest_coins(coins , amount, coin_cache = None ):
   
   a = amount
   if coin_cache is None :
