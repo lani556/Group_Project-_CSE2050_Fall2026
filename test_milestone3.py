@@ -4,6 +4,14 @@ from product import Product
 
 class TestStore(unittest.TestCase):
 
+
+    def test_selection(self):
+        pass
+    def test_binary_search(self):
+        pass
+    def test_fewest_coins(self):
+        pass
+
     def test_recursive_total(self):
         store = Store()
 
