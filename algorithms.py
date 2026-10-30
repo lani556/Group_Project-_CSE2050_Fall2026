@@ -34,6 +34,9 @@ def selection_sort(products):
 
 def binary_search(products, product_id):
   pass
+
+
+  
 def recursive_total_price(products):
   """Calculates the total price of products in a list, recursively"""
   if len(products) == 0:
@@ -66,3 +69,7 @@ def insertion_sort(products):
 if __name__ == "__main__":
   coins = [1,5,10,25]
   print(fewest_coins(coins,12))
+  print(store.recursive_catalog_total()
+  coins = [1, 5, 10]
+  print(store.calculate_change(coins, 12)) 
+  print(store.calculate_change(coins, 0))   

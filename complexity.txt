@@ -3,7 +3,7 @@ Worst Case Running Time analysis
 • recursive_total_price -> O(n^2)
 • fewest_coins (memoized) 
 • bubble_sort -> O(n^2)
-• selection_sort
+• selection_sort 
 • insertion_sort -> O(n^2)
 • binary_search
 • Store.bubble_sort_products -> O(n^2)
