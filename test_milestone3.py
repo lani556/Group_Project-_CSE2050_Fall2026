@@ -5,8 +5,18 @@ from product import Product
 class TestStore(unittest.TestCase):
 
 
-    def test_selection(self):
-        pass
+    def test_selection_sort(self):
+        store = Store()
+
+        self.assertEqual(store.recursive_catalog_total(), 0)
+        mouse = Product("P300", "Mouse", 29.99)
+        keyboard = Product("P100", "Keyboard", 59.99)
+        headphones = Product("P200", "Headphones", 39.99)
+        store.add_product(mouse)
+        store.add_product(keyboard)
+        store.add_product(headphones)
+        l = [p.get_id() for p in store.products]
+        
     def test_binary_search(self):
         pass
     def test_fewest_coins(self):

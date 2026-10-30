@@ -18,6 +18,7 @@ class Store:
         self.processed_orders = Stack()
         self.order_queue = OrderQueue()  # Initialize an empty order queue
         self.order_counter = len(self.orders)  # Initialize order counter based on existing orders
+        self.coin_cache = {} # Initializes a coin change history for calculate change
 
 
     def add_product(self, product):
@@ -108,6 +109,13 @@ class Store:
 
     def recursive_catalog_total(self):
         return algorithms.recursive_total_price(self.products)
+    def calculate_change(self, coins, amount ):
+        return algorithms.fewest_coins(coins, amount , self.coin_cache)
+    def selection_sort_products(self):
+        return algorithms.selection_sort(self.products) 
+    def binary_search_product(self, product_id):
+        return algorithms.binary_search(self.products, product_id)
+
 
 
 

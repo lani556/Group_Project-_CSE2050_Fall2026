@@ -9,4 +9,4 @@ Worst Case Running Time analysis
 • Store.bubble_sort_products -> O(n^2)
 • Store.selection_sort_products
 • Store.insertion_sort_products -> O(n^2)
-• Store.binary_search_product
+• Store.binary_search_product ->  O(log(n))
