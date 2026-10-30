@@ -1,4 +1,5 @@
 from product import Product
+#from store import Store - commenting out bc it gives an error when running unittest. Uncomment out if you want to test algorithms or test algorithms in the store.py file 
 import store
 def fewest_coins(coins, amount, coin_cache = None ):
   
@@ -33,19 +34,9 @@ def selection_sort(products):
         products[sort - 1], products[max] =  products[max], products[sort - 1]
 
 def binary_search(products, product_id):
-    low = 0
-    high = len(products) - 1
-    if low > high:
-      return -1
-  
-    mid = (low + high) // 2
-    if products[mid].get_id() == product_id:
-        return products[mid]
-    elif products[mid].get_id() > product_id:
-        return binary_search(products[low: mid - 1 ], product_id)
-    else:
-        return binary_search(products[mid + 1, high], product_id)
-      
+  pass
+
+
   
 def recursive_total_price(products):
   """Calculates the total price of products in a list, recursively"""
@@ -71,12 +62,15 @@ def insertion_sort(products):
     while j > 0 and products[j - 1].get_id() > products[j].get_id():
       products[j], products[j-1] = products[j-1], products[j]
       j -= 1
-    return products
+  return products
 
 
 
 
 if __name__ == "__main__":
-  coins = [1, 5, 10] 
-  print(fewest_coins(coins, 12)) 
-  print(fewest_coins(coins, 0)) 
+  coins = [1,5,10,25]
+  print(fewest_coins(coins,12))
+  print(store.recursive_catalog_total()
+  coins = [1, 5, 10]
+  print(store.calculate_change(coins, 12)) 
+  print(store.calculate_change(coins, 0))   
