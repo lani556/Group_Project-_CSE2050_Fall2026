@@ -36,7 +36,23 @@ def selection_sort(products):
         products[sort - 1], products[max] =  products[max], products[sort - 1]
 
 def binary_search(products, product_id):
-  pass
+  low = 0
+  high =len(products) - 1
+  if low > high:
+    return -1
+
+  mid = (low + high) // 2
+
+  if products[mid].get_id() == products_id:
+    return products[mid]
+  elif products[mid].get_id() > products_id:
+    return binary_search(products[low : mid - 1 ], products_id)
+  else:
+    return binary_search(products[mid + 1 : high], products_id)
+      
+  
+      
+
 
 
   

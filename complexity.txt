@@ -5,7 +5,7 @@ Worst Case Running Time analysis
 • bubble_sort -> O(n^2)
 • selection_sort 
 • insertion_sort -> O(n^2)
-• binary_search
+• binary_search -> 0(n)
 • Store.bubble_sort_products -> O(n^2)
 • Store.selection_sort_products
 • Store.insertion_sort_products -> O(n^2)
