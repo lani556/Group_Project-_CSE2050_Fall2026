@@ -1,7 +1,7 @@
 from product import Product
-from store import Store 
+import store
 def fewest_coins(coins, amount, coin_cache = None ):
-  coins.sorted(reverse = True)
+  
   a = amount
   if coin_cache is None :
     coin_cache = {}
@@ -33,7 +33,20 @@ def selection_sort(products):
         products[sort - 1], products[max] =  products[max], products[sort - 1]
 
 def binary_search(products, product_id):
-  pass
+    low = 0
+    high = len(products) - 1
+    if low > high:
+      return -1
+  
+    mid = (low + high) // 2
+    if products[mid].get_id() == product_id:
+        return products[mid]
+    elif products[mid].get_id() > product_id:
+        return binary_search(products[low: mid - 1 ], product_id)
+    else:
+        return binary_search(products[mid + 1, high], product_id)
+      
+  
 def recursive_total_price(products):
   """Calculates the total price of products in a list, recursively"""
   if len(products) == 0:
@@ -64,5 +77,6 @@ def insertion_sort(products):
 
 
 if __name__ == "__main__":
-  coins = [1,5,10,25]
-  print(fewest_coins(coins,12))
+  coins = [1, 5, 10] 
+  print(fewest_coins(coins, 12)) 
+  print(fewest_coins(coins, 0)) 
