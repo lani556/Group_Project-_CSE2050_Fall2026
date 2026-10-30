@@ -15,7 +15,7 @@ def fewest_coins(coins , amount, coin_cache = None ):
     else:
       coin_count = amount // c 
       a = amount % c
-      coin_cache[amount] = coin_count + fewest_coins(a, coins, coin_cache)  
+      coin_cache[amount] = coin_count + fewest_coins(coins, a , coin_cache)  
 
   return coin_cache[amount]
 

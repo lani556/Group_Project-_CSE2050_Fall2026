@@ -8,19 +8,64 @@ class TestStore(unittest.TestCase):
     def test_selection_sort(self):
         store = Store()
 
-        self.assertEqual(store.recursive_catalog_total(), 0)
         mouse = Product("P300", "Mouse", 29.99)
         keyboard = Product("P100", "Keyboard", 59.99)
         headphones = Product("P200", "Headphones", 39.99)
         store.add_product(mouse)
         store.add_product(keyboard)
         store.add_product(headphones)
-        l = [p.get_id() for p in store.products]
+        store.selection_sort_products()
+
+        select = [p.get_id() for p in store.products]
+        self.assertEqual(select, ["P100", "P200", "P300"])
         
+        store.selection_sort_products()
+        self.assertEqual(select,["P100", "P200", "P300"])
+
+    def test_selection_sort_reversed(self):
+        store = Store()
+
+        mouse = Product("P300", "Mouse", 29.99)
+        headphones = Product("P200", "Headphones", 39.99)
+        keyboard = Product("P100", "Keyboard", 59.99)
+        store.add_product(mouse)
+        store.add_product(headphones)
+        store.add_product(keyboard)
+        store.selection_sort_products()
+
+        select = [p.get_id() for p in store.products]
+        self.assertEqual(select, ["P100", "P200", "P300"])
+ 
+       
     def test_binary_search(self):
-        pass
+        store = Store()
+
+        mouse = Product("P300", "Mouse", 29.99)
+        keyboard = Product("P100", "Keyboard", 59.99)
+        headphones = Product("P200", "Headphones", 39.99)
+
+        store.add_product(keyboard)
+        store.add_product(headphones)
+        store.add_product(mouse)
+
+        self.assertEqual((store.binary_search_product("P100"), 0))
+        self.assertEqual((store.binary_search_product("P200"), 1))
+        self.assertEqual((store.binary_search_product("P400"), -1))
+
     def test_fewest_coins(self):
-        pass
+        store = Store()
+        coins = [1,5,10]
+        mouse = Product("P300", "Mouse", 0)
+        keyboard = Product("P100", "Keyboard", 20)
+        headphones = Product("P200", "Headphones", 76)
+        store.add_product(mouse)
+        store.add_product(keyboard)
+        store.add_product(headphones)
+
+        self.assertEqual(store.calculate_change(coins,mouse.get_price), 0)
+        self.assertEqual(store.calculate_change(coins,keyboard.get_price), 2)
+        self.assertEqual(store.calculate_change(coins, headphones.get_price), 9)
+        
 
     def test_recursive_total(self):
         store = Store()
