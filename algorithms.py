@@ -6,7 +6,9 @@ def fewest_coins(coins, amount, coin_cache = None ):
   a = amount
   if coin_cache is None :
     coin_cache = {}
-  if amount in coin_cache : return coin_cache[amount]
+  for key in coin_cache.items():
+      if coin_cache[key] == amount:
+        return coin_cache[amount]
   for c in coins:
     if amount == c: 
       coin_cache[amount] = 1
@@ -70,7 +72,3 @@ def insertion_sort(products):
 if __name__ == "__main__":
   coins = [1,5,10,25]
   print(fewest_coins(coins,12))
-  print(store.recursive_catalog_total()
-  coins = [1, 5, 10]
-  print(store.calculate_change(coins, 12)) 
-  print(store.calculate_change(coins, 0))   
