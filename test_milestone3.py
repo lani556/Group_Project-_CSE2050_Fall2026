@@ -1,6 +1,7 @@
 import unittest
 from store import Store
 from product import Product
+import algorithms
 
 class TestStore(unittest.TestCase):
 
@@ -36,7 +37,6 @@ class TestStore(unittest.TestCase):
         select = [p.get_id() for p in store.products]
         self.assertEqual(select, ["P100", "P200", "P300"])
  
-       
     def test_binary_search(self):
         store = Store()
 
@@ -48,23 +48,38 @@ class TestStore(unittest.TestCase):
         store.add_product(headphones)
         store.add_product(mouse)
 
-        self.assertEqual((store.binary_search_product("P100"), 0))
-        self.assertEqual((store.binary_search_product("P200"), 1))
-        self.assertEqual((store.binary_search_product("P400"), -1))
+        self.assertEqual(algorithms.binary_search(store.products, "P100"), 0)
+        self.assertEqual(algorithms.binary_search(store.products, "P200"), 1)
+        self.assertEqual(algorithms.binary_search(store.products, "P400"), -1)  
+    
+    def test_binary_search_product(self):
+        store = Store()
+
+        mouse = Product("P300", "Mouse", 29.99)
+        keyboard = Product("P100", "Keyboard", 59.99)
+        headphones = Product("P200", "Headphones", 39.99)
+
+        store.add_product(keyboard)
+        store.add_product(headphones)
+        store.add_product(mouse)
+
+        self.assertEqual(store.binary_search_product("P100"), keyboard)
+        self.assertEqual(store.binary_search_product("P200"), headphones)
+        self.assertEqual(store.binary_search_product("P400"), None)
 
     def test_fewest_coins(self):
         store = Store()
         coins = [1,5,10]
         mouse = Product("P300", "Mouse", 0)
         keyboard = Product("P100", "Keyboard", 20)
-        headphones = Product("P200", "Headphones", 76)
+        headphones = Product("P200", "Headphones", -1)
         store.add_product(mouse)
         store.add_product(keyboard)
         store.add_product(headphones)
 
-        self.assertEqual(store.calculate_change(coins,mouse.get_price), 0)
-        self.assertEqual(store.calculate_change(coins,keyboard.get_price), 2)
-        self.assertEqual(store.calculate_change(coins, headphones.get_price), 9)
+        self.assertEqual(store.calculate_change(coins,mouse.get_price()), 0)
+        self.assertEqual(store.calculate_change(coins,keyboard.get_price()), 2)
+        self.assertEqual(store.calculate_change(coins, headphones.get_price()), -1)
         
 
     def test_recursive_total(self):
