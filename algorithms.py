@@ -3,7 +3,7 @@ from product import Product
 import store
 def fewest_coins(coins , amount, coin_cache = None ):
   '''Calculates the minimum number of coins needed to make change for inputted amount'''
-  min = amount
+  min = float("inf")
   if coin_cache is None :
     coin_cache = {}
   if amount in coins:
@@ -11,7 +11,7 @@ def fewest_coins(coins , amount, coin_cache = None ):
     return 1
   if amount in coin_cache:
     return coin_cache[amount]
-  
+
   val = [i for i in coins if i <= amount]
   for c in val:
     num = 1 + fewest_coins(coins, amount - c, coin_cache)
@@ -19,10 +19,9 @@ def fewest_coins(coins , amount, coin_cache = None ):
       min = num
       coin_cache[amount] = min  
 
+  if min == float("inf"):
+    return -1
   return min
-
-
-  
 
 
 def selection_sort(products):
