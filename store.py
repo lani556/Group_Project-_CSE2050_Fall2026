@@ -102,19 +102,31 @@ class Store:
         return ord_hist
 
     def bubble_sort_products(self):
+        """Bubble sorts products by id"""
         return algorithms.bubble_sort(self.products)
 
     def insertion_sort_products(self):
+        """Insertion sorts products by id"""
         return algorithms.insertion_sort(self.products)
 
     def recursive_catalog_total(self):
+        """Recursively adds the prices of items in the product list to get total price"""
         return algorithms.recursive_total_price(self.products)
     def calculate_change(self, coins, amount ):
+        """Calculates the minimum number of coins needed to return change to a customer"""
         return algorithms.fewest_coins(coins, amount , self.coin_cache)
     def selection_sort_products(self):
+        """Selection sorts products by id"""
         return algorithms.selection_sort(self.products) 
     def binary_search_product(self, product_id):
-        return algorithms.binary_search(self.products, product_id)
+        """Uses binary search method to look for a product by id, returns product"""
+        ind = algorithms.binary_search(self.products, product_id)
+        if ind == -1:
+            return None
+        else: 
+            return self.products[ind]
+            
+    
 
 
 
