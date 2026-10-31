@@ -11,6 +11,8 @@ def fewest_coins(coins , amount, coin_cache = None ):
     return 1
   if amount in coin_cache:
     return coin_cache[amount]
+  if amount == 0:
+    return 0
 
   val = [i for i in coins if i <= amount]
   for c in val:
