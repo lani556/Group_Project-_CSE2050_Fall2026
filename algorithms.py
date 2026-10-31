@@ -49,7 +49,7 @@ def binary_search(products, product_id):
   mid = (low + high) // 2
 
   if products[mid].get_id() == product_id:
-    return products[mid]
+    return mid
   elif products[mid].get_id() > product_id:
     return binary_search(products[low : mid - 1 ], product_id)
   else:

@@ -49,7 +49,7 @@ class TestStore(unittest.TestCase):
         store.add_product(mouse)
 
         self.assertEqual(algorithms.binary_search(store.products, "P100"), 0)
-        self.assertEqual(algorithms.binary_search(store.products, "P200"), 1)
+        self.assertEqual(algorithms.binary_search(store.products, store.products[len(store.products)//2].get_id()), 1)
         self.assertEqual(algorithms.binary_search(store.products, "P400"), -1)  
     
     def test_binary_search_product(self):
@@ -67,7 +67,7 @@ class TestStore(unittest.TestCase):
         self.assertEqual(store.binary_search_product("P200"), headphones)
         self.assertEqual(store.binary_search_product("P400"), None)
 
-    def test_fewest_coins(self):
+    def test_calculate_change(self):
         store = Store()
         coins = [1,5,10]
         mouse = Product("P300", "Mouse", 0)
@@ -80,6 +80,11 @@ class TestStore(unittest.TestCase):
         self.assertEqual(store.calculate_change(coins,mouse.get_price()), 0)
         self.assertEqual(store.calculate_change(coins,keyboard.get_price()), 2)
         self.assertEqual(store.calculate_change(coins, headphones.get_price()), -1)
+
+    def test_fewestcoins(self):
+        self.assertEqual(algorithms.fewest_coins([1,5,10], 0), 0)
+        self.assertEqual(algorithms.fewest_coins([1,5,10], 5), 1)
+        self.assertEqual(algorithms.fewest_coins([1,5,10], 12), 3)
         
 
     def test_recursive_total(self):
