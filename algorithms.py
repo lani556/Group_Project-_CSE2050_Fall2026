@@ -3,7 +3,7 @@ from product import Product
 import store
 def fewest_coins(coins , amount, coin_cache = None ):
   '''Calculates the minimum number of coins needed to make change for inputted amount'''
-  a = amount
+  min = amount
   if coin_cache is None :
     coin_cache = {}
   if amount in coins:
