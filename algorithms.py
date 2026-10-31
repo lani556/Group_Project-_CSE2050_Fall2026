@@ -2,28 +2,31 @@ from product import Product
 #from store import Store - commenting out bc it gives an error when running unittest. Uncomment out if you want to test algorithms or test algorithms in the store.py file 
 import store
 def fewest_coins(coins , amount, coin_cache = None ):
-  
+  '''Calculates the minimum number of coins needed to make change for inputted amount'''
   a = amount
   if coin_cache is None :
     coin_cache = {}
-  for key in coin_cache.items():
-      if coin_cache[key] == amount:
-        return coin_cache[amount]
-  for c in coins:
-    if amount == c: 
-      coin_cache[amount] = 1
-    else:
-      coin_count = amount // c 
-      a = amount % c
-      coin_cache[amount] = coin_count + fewest_coins(coins, a , coin_cache)  
+  if amount in coins:
+    coin_cache[amount] = 1
+    return 1
+  if amount in coin_cache:
+    return coin_cache[amount]
+  
+  val = [i for i in coins if i <= amount]
+  for c in val:
+    num = 1 + fewest_coins(coins, amount - c, coin_cache)
+    if num < min:
+      min = num
+      coin_cache[amount] = min  
 
-  return coin_cache[amount]
+  return min
+
 
   
-  
 
-"""this algorthim compares the product ids to find the largest and moves it to the end and repeats moving the next largest to the next spot """
+
 def selection_sort(products):
+  """this algorthim compares the product ids to find the largest and moves it to the end and repeats moving the next largest to the next spot """
   length = len(products)
   for i in range(length - 1):
     max = 0
@@ -36,6 +39,7 @@ def selection_sort(products):
         products[sort - 1], products[max] =  products[max], products[sort - 1]
 
 def binary_search(products, product_id):
+  """Searches through a sorted list using binary search"""
   low = 0
   high =len(products) - 1
   if low > high:
